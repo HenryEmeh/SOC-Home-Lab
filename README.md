@@ -26,12 +26,7 @@ graph TD
     end
     
     User[Admin Mac Terminal] -- IAP Tunnel (Port 22) --> Firewall
-    Internet((Internet)) -- Updates (Outbound Only) --> Victim
-
-
-
-
-
+    Internet((Internet)) -- Updates (Outbound Only) --> Victim```
 
 
 
@@ -39,8 +34,19 @@ graph TD
 
 
 ---
+## 🛠️ Tech Stack & Configuration
+| Component | Technology | Configuration | Status |
+| :--- | :--- | :--- | :--- |
+| **Infrastructure** | Google Cloud (GCP) | `e2-micro` (Free Tier) in `us-central1` | ✅ Active |
+| **Network** | Custom VPC | Isolated Subnet (`10.0.0.0/24`) | ✅ Active |
+| **Operating System** | Ubuntu 24.04 LTS | Server Minimal Install | ✅ Active |
+| **Access Control** | Cloud Firewall + IAP | Least Privilege (Ingress Deny All) | ✅ Active |
+| **SIEM / XDR** | Wazuh | Manager + Agent Deployment | ⏳ Pending |
+
+---
+
 ## 📚 Learning Resources & References
 * **Cloud Infrastructure:** [Google Cloud VPC Documentation](https://cloud.google.com/vpc/docs/vpc)
 * **Defense Theory:** [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework)
 * **Lab Guide:** Inspired by Open-Source SOC Analyst roadmaps.
-* **Academic Context:** Integrating principles from AltSchool Africa (Cybersecurity track).
+* **Academic Context:** Integrating principles from **AltSchool Africa** (Cybersecurity track).
