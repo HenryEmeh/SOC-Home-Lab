@@ -26,12 +26,8 @@ graph TD
     end
     
     User[Admin Mac Terminal] -- IAP Tunnel (Port 22) --> Firewall
-    Internet((Internet)) -- Updates (Outbound Only) --> Victim```
-
-
-
-
-
+    Internet((Internet)) -- Updates (Outbound Only) --> Victim
+```
 
 ---
 ## 🛠️ Tech Stack & Configuration
