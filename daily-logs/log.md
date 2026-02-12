@@ -99,3 +99,44 @@ For consistency, please use this template for all future entries:
 
 ### Notes
 - Critical learning: Cloud firewalls block internal management tools (like IAP) by default. Explicit rules are required for *any* traffic ingress.
+
+---
+
+## Feb 12, 2026: SIEM Deployment & Infrastructure Scaling
+**Status:** ✅ Complete
+
+### Task
+- Deployed a single-node Wazuh SIEM stack (Indexer, Manager, Dashboard) using Docker Compose.
+- Resized GCP infrastructure from `e2-micro` to `e2-medium`.
+- Hardened SSH access by transitioning from Port 22 to Port 2222.
+- Initialized Phase 3: Cowrie Honeypot installation and user isolation.
+
+### Technical Challenges
+- **Challenge 1: Resource Exhaustion (OOM Kills).**
+  - **Description:** The `e2-micro` (1GB RAM) was insufficient for the Java-based Wazuh Indexer, causing the container to crash repeatedly.
+  - **Solution:** Performed a vertical scale-up to `e2-medium` (4GB RAM) and verified stability using `docker stats`.
+- **Challenge 2: Ingress Connectivity Failure (403/Connection Refused).**
+  - **Description:** Successfully reached the indexer "Green" status, but the dashboard was unreachable via browser.
+  - **Solution:** Identified two configuration errors:
+    1. A typo in the firewall rule (Port 433 vs 443).
+    2. A network mismatch (Rule was applied to the 'default' VPC instead of the 'soc-lab-vpc').
+    Resolved by updating the rule to Port 443 on the correct VPC.
+
+### Decisions Made
+- **Decision 1: Static IP Reservation.**
+  - **Why:** To maintain consistent access to the Wazuh Dashboard and SSH during frequent VM shutdowns (cost-saving measure).
+- **Decision 2: SSH Port Hardening (22 → 2222).**
+  - **Why:** To mitigate automated brute-force attempts on the standard SSH port and clear the way for the Cowrie Honeypot to occupy Port 22.
+
+### Next Steps
+1. Launch Cowrie Honeypot service and verify log generation.
+2. Deploy Wazuh Agent on the honeypot to pipe logs into the Dashboard.
+3. Configure custom decoders for honeypot telemetry.
+
+### Time Spent
+- Estimated: 4 hours
+- Actual: 5.5 hours (Extensive troubleshooting of firewall and RAM constraints)
+
+### Notes
+- Critical Proof: Wazuh Indexer reached `Cluster health status: [GREEN]` at 16:20:00 WAT.
+- Current Credit Status: Actively managing a $5 personal budget by scheduling VM shutdowns.
