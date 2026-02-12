@@ -12,6 +12,8 @@ To provision a secure, cloud-native environment on Google Cloud Platform (GCP) t
 * **Subnet:** `10.0.0.0/24` (Isolated private range)
 * **Compute:** `e2-micro` instance running **Ubuntu 24.04 LTS**.
 
+![GCP Dashboard Showing VM](assets/GCB_Dashboard.png)
+
 ## 3. Security Challenges & Troubleshooting
 ### Issue: The "Code 4003" Connectivity Block
 **Problem:**
@@ -27,3 +29,5 @@ I created a specific Firewall Rule to allow TCP traffic on Port 22 *only* from G
 ## 4. Verification
 * Validated connectivity via local terminal using `gcloud compute ssh`.
 * Confirmed OS version and resource usage.
+
+![Terminal Verification](assets/neofetch.png)
