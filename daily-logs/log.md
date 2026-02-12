@@ -140,3 +140,5 @@ For consistency, please use this template for all future entries:
 ### Notes
 - Critical Proof: Wazuh Indexer reached `Cluster health status: [GREEN]` at 16:20:00 WAT.
 - Current Credit Status: Actively managing a $5 personal budget by scheduling VM shutdowns.
+*Note: Successfully transitioned to local Git CLI workflow on Feb 12.*
+
