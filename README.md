@@ -3,9 +3,6 @@
 ![Wazuh SIEM Live Dashboard](./assets/wazuh-live-telemetry.png)
 
 ## 🚀 Project Overview
-...
-
-## 🚀 Project Overview
 A cloud-based Security Operations Center (SOC) built to simulate real-world attack and defense scenarios. This lab leverages **Google Cloud Platform (GCP)** to host a hardened "Victim" machine and a centralized SIEM (Wazuh) for threat detection, log aggregation, and incident response.
 
 ## 🟡 Project Status: Phase 2 & 3 (SIEM Deployment & Honeypot Initialized)
