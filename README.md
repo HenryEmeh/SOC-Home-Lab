@@ -36,7 +36,6 @@ graph TD
 ### Part 2: Updated Tech Stack & Quick Links
 *I updated your Tech Stack to reflect the `e2-medium` upgrade and the Wazuh status.*
 
-```markdown
 ## 🛠️ Tech Stack & Configuration
 | Component | Technology | Configuration | Status |
 | :--- | :--- | :--- | :--- |
