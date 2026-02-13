@@ -57,6 +57,14 @@ For a deep dive into the technical challenges, troubleshooting, and configuratio
 
 ---
 
+## 🎯 Phase 3: The Deception (Coming Soon)
+- [ ] **Cowrie Deployment:** Activate the high-interaction honeypot on Port 22.
+- [ ] **Traffic Redirection:** Finalize firewall rules to bait malicious SSH attempts.
+- [ ] **Telemetry Pipeline:** Configure custom decoders to push Cowrie JSON logs to the Wazuh Manager.
+- [ ] **Analysis:** Monitor for first-wave automated brute-force attacks.
+
+---
+
 ## 📚 Learning Resources & References
 * **Cloud Infrastructure:** [Google Cloud VPC Documentation](https://cloud.google.com/vpc/docs/vpc)
 * **SIEM Tools:** [Wazuh Documentation](https://documentation.wazuh.com/)
