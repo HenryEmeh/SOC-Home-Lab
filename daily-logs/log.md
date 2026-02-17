@@ -144,3 +144,39 @@ For consistency, please use this template for all future entries:
 
 ## Feb 13, 2026: Reflection: Evaluated infrastructure costs and adjusted GCP budgets. Prepared local environment for VS Code integration. Focus today is on documentation integrity and local workflow optimization.
 *Identity verified via local git config.*
+
+---
+
+## Feb 17, 2026: Hybrid Cloud Expansion & Azure Policy Troubleshooting
+**Status:** 🚧 In Progress
+
+### Task
+- Initiated "Phase 2" of the SOC Lab: Expanding into a Hybrid Cloud architecture.
+- Attempted to provision a Windows Server 2022 "Victim" machine on Microsoft Azure to simulate a cross-cloud attack surface (GCP Manager ↔ Azure Victim).
+- Registered Azure Resource Providers (`Microsoft.Compute`, `Microsoft.Network`) to enable student subscription capabilities.
+
+### Technical Challenges
+- **Challenge 1: Regional Policy Restrictions (`RequestDisallowedByAzure`)**
+  - **Description:** Deployment in `North Europe` failed due to strict "Student Subscription" policies that limit resources to specific geographic regions.
+  - **Solution:** Analyzed the "Allowed Resource Deployment" policy assignment and identified `East US` and `West US 2` as permitted regions.
+- **Challenge 2: Compute Quota Limits (Empty SKU List)**
+  - **Description:** Even in allowed regions, the specific `Standard_B2s` (Burstable) VM size required for the budget was hidden or unavailable due to high demand on student tiers.
+  - **Status:** Paused deployment to avoid provisioning expensive "Pay-As-You-Go" instances. Will retry during off-peak hours.
+
+### Decisions Made
+- **Decision 1: Hybrid Cloud Architecture**
+  - **Why:** Instead of keeping everything in GCP, I chose to place the Windows victim in Azure. This forces the lab to handle real-world complexity: monitoring latency, public IP routing, and firewall rules between two different cloud providers.
+- **Decision 2: Infrastructure Cost Controls**
+  - **Why:** Pre-configured the "Auto-shutdown" policy (19:00 WAT) and selected `Standard SSD` storage to ensure the $100 Azure credit lasts for 12 months.
+
+### Next Steps
+1. Retry provisioning of Windows Server 2022 in `East US` region.
+2. Configure Azure Network Security Group (NSG) to allow Wazuh Agent traffic (Port 1514/1515).
+3. Connect the Azure Victim to the GCP Wazuh Manager via Public IP.
+
+### Time Spent
+- Estimated: 1 hour
+- Actual: 3 hours (Due to policy errors and regional capacity troubleshooting)
+
+### Notes
+- **Critical Lesson:** Cloud capacity is not infinite for free/student tiers. Flexibility in region selection (switching from Europe to US) is a required skill for cost-effective cloud engineering.
