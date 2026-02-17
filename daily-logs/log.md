@@ -180,3 +180,6 @@ For consistency, please use this template for all future entries:
 
 ### Notes
 - **Critical Lesson:** Cloud capacity is not infinite for free/student tiers. Flexibility in region selection (switching from Europe to US) is a required skill for cost-effective cloud engineering.
+
+![Azure Validation Error](./assets/azure-validation-error.jpg)
+![Azure Policy Deny Log](./assets/azure-policy-deny-log.jpg)
